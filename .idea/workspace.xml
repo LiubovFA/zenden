@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8228138a-8866-4b10-9552-c4d0e7258ba7" name="Default Changelist" comment="" />
+    <list default="true" id="8228138a-8866-4b10-9552-c4d0e7258ba7" name="Default Changelist" comment="DONE&#10;&#10;+ написан парсер&#10;+ реализован класс Item - представляет собой позицию обуви&#10;+ реализован шаблон MVC&#10;+ реализован вывод собранной информации">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,8 +87,16 @@
       <workItem from="1607358116516" duration="13562000" />
       <workItem from="1607439695358" duration="29408000" />
       <workItem from="1607606613846" duration="3840000" />
-      <workItem from="1607611387864" duration="12656000" />
+      <workItem from="1607611387864" duration="13688000" />
     </task>
+    <task id="LOCAL-00001" summary="DONE&#10;&#10;+ написан парсер&#10;+ реализован класс Item - представляет собой позицию обуви&#10;+ реализован шаблон MVC&#10;+ реализован вывод собранной информации">
+      <created>1607626115926</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607626115926</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +113,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="DONE&#10;&#10;+ написан парсер&#10;+ реализован класс Item - представляет собой позицию обуви&#10;+ реализован шаблон MVC&#10;+ реализован вывод собранной информации" />
+    <option name="LAST_COMMIT_MESSAGE" value="DONE&#10;&#10;+ написан парсер&#10;+ реализован класс Item - представляет собой позицию обуви&#10;+ реализован шаблон MVC&#10;+ реализован вывод собранной информации" />
   </component>
   <component name="WindowStateProjectService">
     <state x="263" y="19" key="#CLI_Interpreters" timestamp="1607358858405">
@@ -132,6 +147,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1607614125385" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607626142498">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607626142498" />
     <state x="499" y="142" key="chooseDestDirectoryDialog" timestamp="1607431056555">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
