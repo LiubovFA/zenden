@@ -1,0 +1,20 @@
+{
+  "name": "zenden/project",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Любовь",
+      "email": "fedorovala2015@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "zenden\\": ""
+    }
+  },
+  "require": {
+    "ext-curl": "*"
+  }
+}
