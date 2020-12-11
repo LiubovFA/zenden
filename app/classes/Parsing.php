@@ -74,7 +74,11 @@ class Parsing
             $old_price = $this->getOldPrice($price_parts[0]);
 
             $discount = $this->getDiscount($parts[3]);
-            $sizes = $this->getSizes($main_parts[1]);
+
+            if (count($main_parts) > 1)
+                $sizes = $this->getSizes($main_parts[1]);
+            else
+                $sizes = "";
 
             //присваиваем
             $item->setRef($ref);
@@ -86,99 +90,42 @@ class Parsing
             $item->setSizes($sizes);
 
             $items_array[] = $item;
-/*
-            echo "ПОЗИЦИЯ $i <br>";
-            echo "ref = ".$item->getRef()."<br>";
-            echo "img = ".$item->getImg()."<br>";
-            echo "cur price = ".$item->getCurrentPrice().'<br>';
-            echo "old price = ".$item->getOldPrice().'<br>';
-            echo "Discount = ".$item->getDiscount().'<br>';
-            echo "sizes = ".$item->getSizes().'<br>';*/
         }
 
-        //echo "length of array items = ". count($items_array)."<br>";
-
-
-        /*$item1 = new Item('n1', 'img1', 'ref1', 'p1');
-        $item2 = new Item('n2', 'img2', 'ref2', 'p2');
-        $item3 = new Item('n3', 'img3', 'ref3', 'p3');
-
-        $arr = array ($item1, $item2, $item3);
-
-        $item4 = new Item('n4', 'img4', 'ref4', 'p4');
-
-        $arr[] = $item4;
-
-        for ($i=0; $i<count($arr); $i++)
-        {
-            echo $arr[$i]->getName()." ".$arr[$i]->getImg()." ".$arr[$i]->getRef()." ".$arr[$i]->getPrice()."<br>";
-        }*/
         return $items_array;
     }
 
     private function getRef($src_str)
     {
-        //вычисляем начало и конец ссылки и ее длину
-        $start = strpos($src_str, "\"")+1;
-        $end = strpos($src_str, "\"", $start);
-        $length = $end-$start;
-
-        //получаем ссылку
-        $ref = substr($src_str, $start, $length);
+        $ref = $this->getImgOrRef($src_str, "\"", "\"", 1);
 
         return $ref;
     }
 
     private function getImg($src_str)
     {
-        $start = strpos($src_str, "src=\"")+5;
-
-        $end = strpos($src_str, "\"", $start);
-
-        $length = $end-$start;
-
-        $img = substr($src_str, $start, $length);
+        $img = $this->getImgOrRef($src_str, "src=\"", "\"", 5);
 
         return $img;
     }
 
     private function getName($src_str)
     {
-        $end = strpos($src_str, "</a>");
-
-        $name = substr($src_str, 0 , $end);
-
-        $start = strrpos($name, ">")+1;
-
-        $name = substr($name, $start, $end-$start);
+        $name = $this->getNameOrPrice($src_str, "</a>");
 
         return $name;
     }
 
     private function getCurrentPrice($src_str)
     {
-        $end = strpos($src_str, "</span>")-4;
-
-        $current = substr($src_str, 0 , $end);
-
-        $start = strrpos($current, ">")+1;
-
-        $current = substr($current, $start, $end-$start);
+        $current = $this->getNameOrPrice($src_str, "</span>");
 
         return $current;
     }
 
     private function getOldPrice($src_str)
     {
-        $end = strpos($src_str, "</del>")-4;
-
-        $old = substr($src_str, 0 , $end);
-
-        $start = strrpos($old, ">")+1;
-
-        $old = substr($old, $start, $end-$start);
-
-        //echo "old price = $old <br>";
+        $old = $this->getNameOrPrice($src_str, "</del>");
 
         return $old;
     }
@@ -187,15 +134,44 @@ class Parsing
     {
         $parts = explode('span', $src_str);
 
-        $end = strlen($parts[1]) - 2;
+        if (count($parts) > 1) {
 
-        $start = strpos($parts[1], '>')+1;
+            $end = strlen($parts[1]) - 2;
 
-        $length = $end - $start;
+            $start = strpos($parts[1], '>') + 1;
 
-        $discount = substr($parts[1], $start, $length);
+            $length = $end - $start;
 
-        return $discount;
+            $discount = substr($parts[1], $start, $length);
+
+            return $discount;
+        }
+
+        return "";
+    }
+
+    private function getNameOrPrice($source, $needle)
+    {
+        $end = strpos($source, $needle);
+
+        $part = substr($source, 0 , $end);
+
+        $start = strrpos($part, ">")+1;
+
+        $part = substr($part, $start, $end-$start);
+
+        return $part;
+    }
+
+    private function getImgOrRef($source, $needleStart, $needleEnd, $num)
+    {
+        $start = strpos($source, $needleStart)+$num;
+
+        $end = strpos($source, $needleEnd, $start);
+
+        $phrase = substr($source, $start, $end-$start);
+
+        return $phrase;
     }
 
     private function getSizes($src_str)
@@ -204,13 +180,10 @@ class Parsing
 
         $parts_length = count($parts);
 
-       // echo "$parts_length <br>";
         $sizes = "";
 
         for ($i=0; $i<$parts_length; $i++)
         {
-            //echo "size part = $parts[$i] <br>";
-
             $pos = strpos($parts[$i], "out-of-stock");
 
             if ( $pos === false)

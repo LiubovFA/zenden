@@ -71,11 +71,18 @@ h3
     width: 100%;
     padding-left: 35px;
 }
+
 .column {
     float: right;
     width: calc(100%/3);
     background-color: #ebe0c5;
-    text-align: center
+    text-align: center;
+}
+
+div.img
+{
+    display: block;
+    height: 280px;
 }
 
 /* Clear floats after the columns */

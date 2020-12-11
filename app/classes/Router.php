@@ -23,7 +23,6 @@ class Router
         {
             case "/data":
             {
-                // echo "Router is starting <br>";
                 $controller = 'zenden\\app\\controllers\\'.$this->controller.'Controller';
 
                 $cntl = new MainController();
@@ -48,7 +47,6 @@ class Router
     private function getURI()
     {
         $query = rtrim($_SERVER['REQUEST_URI'], "/");
-        // echo $_SERVER['REQUEST_URI'].'<br> $query is '.$query.' <br>';
         return $query;
     }
 }

@@ -12,14 +12,12 @@ class MainController
     public function __construct()
     {
         $this->view = new View();
-        // echo "это MainController! <br>";
     }
 
     public function Index()
     {
         $this->view->setView("Index");
         $this->view->render();
-        // echo "Это метод Index <br>";
     }
 
     public function GetData()

@@ -32,7 +32,6 @@ class View
         }
         else
         {
-            // echo 'This is the view <br>';
             ob_start();
             include $path;
             $content = ob_get_clean();

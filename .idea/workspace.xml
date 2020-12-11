@@ -19,9 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8228138a-8866-4b10-9552-c4d0e7258ba7" name="Default Changelist" comment="Исправлены ссылки">
+    <list default="true" id="8228138a-8866-4b10-9552-c4d0e7258ba7" name="Default Changelist" comment="+ Исправлен баг с получением информации по доступным размерам&#10;+ Немного скорректированно отображение позиций на странице (style.css + Index.php)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/classes/Parsing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/Parsing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/classes/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/classes/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/css/style.css" afterDir="false" />
     </list>
@@ -90,7 +93,7 @@
       <workItem from="1607439695358" duration="29408000" />
       <workItem from="1607606613846" duration="3840000" />
       <workItem from="1607611387864" duration="13868000" />
-      <workItem from="1607674825743" duration="4737000" />
+      <workItem from="1607674825743" duration="9895000" />
     </task>
     <task id="LOCAL-00001" summary="DONE&#10;&#10;+ написан парсер&#10;+ реализован класс Item - представляет собой позицию обуви&#10;+ реализован шаблон MVC&#10;+ реализован вывод собранной информации">
       <created>1607626115926</created>
@@ -106,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607627286688</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+ Исправлен баг с получением информации по доступным размерам&#10;+ Немного скорректированно отображение позиций на странице (style.css + Index.php)">
+      <created>1607683679985</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607683679985</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +137,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DONE&#10;&#10;+ написан парсер&#10;+ реализован класс Item - представляет собой позицию обуви&#10;+ реализован шаблон MVC&#10;+ реализован вывод собранной информации" />
     <MESSAGE value="Исправлены ссылки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлены ссылки" />
+    <MESSAGE value="Исправлен баг с получением информации по доступным размерам" />
+    <MESSAGE value="+ Исправлен баг с получением информации по доступным размерам&#10;+ Немного скорректированно отображение позиций на странице (style.css + Index.php)" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Исправлен баг с получением информации по доступным размерам&#10;+ Немного скорректированно отображение позиций на странице (style.css + Index.php)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="263" y="19" key="#CLI_Interpreters" timestamp="1607358858405">
@@ -158,10 +170,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1607614125385" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607627291764">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1607683686557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607627291764" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607683686557" />
     <state x="499" y="142" key="chooseDestDirectoryDialog" timestamp="1607431056555">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
