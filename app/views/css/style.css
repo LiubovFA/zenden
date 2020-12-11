@@ -61,6 +61,10 @@ input[type=url] {
         border: 1px solid #ccc;
     }
 }
+h3
+{
+    text-align: center;
+}
 
 .row
 {
@@ -68,13 +72,15 @@ input[type=url] {
     padding-left: 35px;
 }
 .column {
-    float: left;
-    width: calc(100%/3);;
+    float: right;
+    width: calc(100%/3);
+    background-color: #ebe0c5;
+    text-align: center
 }
 
 /* Clear floats after the columns */
 .row:after {
     content: "";
-    display: table-cell;
+    display: table;
     clear: both;
 }

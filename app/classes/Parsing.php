@@ -53,9 +53,6 @@ class Parsing
 
             $main_parts = explode("<div class=\"product-card__sizes\">", $items_full_info[$i]);
 
-           // echo $main_parts[0]."<br>";
-           // echo $main_parts[1]."<br>";
-
             $parts = explode("<div ", $main_parts[0]);
 
             //убираем закомменченный ранее раздел
@@ -89,8 +86,8 @@ class Parsing
             $item->setSizes($sizes);
 
             $items_array[] = $item;
-
-           /* echo "ПОЗИЦИЯ $i <br>";
+/*
+            echo "ПОЗИЦИЯ $i <br>";
             echo "ref = ".$item->getRef()."<br>";
             echo "img = ".$item->getImg()."<br>";
             echo "cur price = ".$item->getCurrentPrice().'<br>';
@@ -135,7 +132,9 @@ class Parsing
     private function getImg($src_str)
     {
         $start = strpos($src_str, "src=\"")+5;
+
         $end = strpos($src_str, "\"", $start);
+
         $length = $end-$start;
 
         $img = substr($src_str, $start, $length);
@@ -189,6 +188,7 @@ class Parsing
         $parts = explode('span', $src_str);
 
         $end = strlen($parts[1]) - 2;
+
         $start = strpos($parts[1], '>')+1;
 
         $length = $end - $start;
@@ -200,18 +200,27 @@ class Parsing
 
     private function getSizes($src_str)
     {
-        $parts = explode("<div class=\"product-card__sizes-item\">", $src_str);
+        $parts = explode("<div class=\"product-card__sizes-item", $src_str);
 
         $parts_length = count($parts);
+
+       // echo "$parts_length <br>";
         $sizes = "";
 
         for ($i=0; $i<$parts_length; $i++)
         {
-            $part = str_replace('</div>', '', $parts[$i]);
-            $part = trim($part);
+            //echo "size part = $parts[$i] <br>";
 
-            if($part != "" || $part != " ")
-                $sizes .= "$part ";
+            $pos = strpos($parts[$i], "out-of-stock");
+
+            if ( $pos === false)
+            {
+                $part = str_replace(array ('</div>', '>', '"'), '', $parts[$i]);
+                $part = trim($part);
+
+                if ($part != "" || $part != " ")
+                    $sizes .= "$part ";
+            }
         }
 
         return trim($sizes);
